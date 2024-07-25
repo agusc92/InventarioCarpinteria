@@ -1,0 +1,16 @@
+nav{
+    background-color: lightcoral;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+main button{
+    margin-top: 20px;
+}
