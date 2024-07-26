@@ -1,7 +1,11 @@
 <div class="contenedor">
 <div class="busqueda">
-     <barra-busqueda></barra-busqueda>
-</div>
+     <barra-busqueda 
+     (valorCambiado)="buscado = $event" >
+     <!-- se utiliza solo los parentesis porque solo estoy utilizando el ouput, no se cominican en ambas direcciones -->
+     </barra-busqueda>
+</div> 
+
 <table>
     <thead>
         <tr>
@@ -14,7 +18,7 @@
         </tr>
     </thead>
     <tbody>
-        @for (placa of placas; track $index) {
+        @for (placa of placas | filtro: buscado ; track $index) {
             <tr>
                 <td>{{placa.nombre}}</td>
                 <td>{{placa.material}}</td>
@@ -23,6 +27,7 @@
                 <td>{{placa.stock}}</td>
                 <td>{{placa.sector}}</td>
             </tr>
+            
         }
     </tbody>
 </table>

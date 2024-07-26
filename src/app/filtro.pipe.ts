@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Placa } from './inventario/Placa';
 
 @Pipe({
   name: 'filtro',
@@ -6,8 +7,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FiltroPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: Placa[], arg: string): Placa[] {
+     const placasFiltradas : Placa[] =[];
+     for(const placa of value){
+      if(placa.nombre.toLowerCase().includes(arg.toLowerCase())
+      ||placa.material.toLowerCase().includes(arg.toLowerCase())){
+        placasFiltradas.push(placa)
+      }
+     }
+    return placasFiltradas;
   }
 
 }

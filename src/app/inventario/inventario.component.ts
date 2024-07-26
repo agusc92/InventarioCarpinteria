@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { Placa } from './Placa';
 import { BarraBusquedaComponent } from '../barra-busqueda/barra-busqueda.component';
+import { FiltroPipe } from "../filtro.pipe";
 @Component({
   selector: 'app-inventario',
   standalone: true,
-  imports: [BarraBusquedaComponent],
+  imports: [BarraBusquedaComponent, FiltroPipe],
   templateUrl: './inventario.component.html',
   styleUrl: './inventario.component.scss'
 })
 export class InventarioComponent {
+  buscado :string ="";
   placas : Placa[]= [
     {
       nombre: "Roble",
