@@ -7,4 +7,5 @@ export interface Placa{
     imagen : string,
     stock : number,
     espesor:number,
+    sector:string,
 }
